@@ -26,7 +26,12 @@ function Etapa({etapa}) {
     //     <Button variant="outlined"><AddIcon/> {t('clasificacion')}</Button>
     //     <Button variant="outlined"><AddIcon/> {t('competenciaIndividual')}</Button>
     // </Stack>);
-    return (<Stack direction="column"  spacing={2}>{listGruposUi}</Stack>);
+    return (<Stack direction="column"  spacing={2}>
+      <Typography variant='h3'>
+        {etapa.nombre}
+      </Typography>
+      {listGruposUi}
+    </Stack>);
     //return (<div>{listGruposUi}</div>);
 }
 

@@ -29,7 +29,10 @@ const objetoEtapaList = [
 ];
 
 const initialState = {
-    etapas: [{ id: "2asfa", nombre: "Etapa 1", objetoEtapaList: objetoEtapaList }],
+    etapas: [{ id: 0, nombre: "Etapa 1", objetoEtapaList: objetoEtapaList },
+    { id: 1, nombre: "Etapa 2", objetoEtapaList: objetoEtapaList }
+
+    ],
 };
 
 export const clasificacionSlice = createSlice(
@@ -39,7 +42,7 @@ export const clasificacionSlice = createSlice(
         reducers: {
             agregarEtapa: (state, action) => {
                 let id = state.etapas.length;
-                state.etapas.push({ id, nombre: `"Etapa "${state.etapas.length}`,objetoEtapaList:[] });
+                state.etapas.push({ id, nombre: `Etapa ${state.etapas.length}`,objetoEtapaList:[] });
             },
             agregarObjetoEtapa: (state, action) => {
                 //agregarObjetoEtapa (idEtapa,tipoObjetoEtapa,nombreObjetoEtapa)
