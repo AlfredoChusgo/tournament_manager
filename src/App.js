@@ -3,11 +3,50 @@ import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
 import './i18n';
+import { createSlice, createStore } from "@reduxjs/toolkit";
+import { Provider, useSelector } from "react-redux";
+import ManagerView from './features/manager/manager_view';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
-import ClasificacionView from './app/components/clasificacion/clasificacion_view';
-function App(){
-  return <ClasificacionView></ClasificacionView>;
+//import ClasificacionView from './features/clasificacion/clasificacion_view';
+import ClasificacionView from './features/clasificacion/clasificacion_view';
+// function App(){
+//   return <ClasificacionView></ClasificacionView>;
+// }
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home></Home>
+  },
+  {
+    path: "/counter",
+    element: <Counter></Counter>
+  },
+  {
+    path: "/clasification-view",
+    element: <ClasificacionView></ClasificacionView>
+  },
+]);
+
+function Home() {
+  return (
+    <div>
+      <p>Welcome to the Home Page</p>
+      <a href="/counter">Go to counter</a>
+      <a href="/clasification-view">Go to clasification-view</a>
+    </div>
+  );
 }
+function App(){
+  return (
+    <ManagerView/>
+  );
+}
+
 // function App() {
 //   return (
 //     <div className="App">
