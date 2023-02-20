@@ -16,6 +16,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { useTranslation } from 'react-i18next';
+import {eliminarObjetoEtapaGrupo} from '../../clasificacion/clasificacion_slice';
+import { useSelector, useDispatch } from 'react-redux';
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
     alignItems: 'flex-start',
@@ -27,8 +29,12 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
     },
 }));
 
-function ObjetoEtapaGrupoView({ name, listaEquipos = [] }) {
+//function ObjetoEtapaGrupoView({ id,name, listaEquipos = [] }) {
+function ObjetoEtapaGrupoView({ etapaId,grupo}) {
+    const {id,listaEquipos,nombre} = grupo;
     const { t, i18n } = useTranslation();
+    const dispatch = useDispatch();
+
     const listaEquiposView = listaEquipos.map(e => {
         let name = e.nombreEquipo ?? t("lugarVacio").toUpperCase();
         let textColor = e.nombreEquipo!=null ? {}: {color:'error.dark'};
@@ -46,13 +52,14 @@ function ObjetoEtapaGrupoView({ name, listaEquipos = [] }) {
             <AppBar position="static">
                 <Toolbar>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        {name}
+                        {nombre}
                     </Typography>
                     <IconButton edge="end" color="inherit" aria-label="close">
                         <EditIcon />
                     </IconButton>
-                    <IconButton edge="end" color="inherit" aria-label="close">
-                        <DeleteIcon />
+                    {/* <IconButton onClick={dispatch(eliminarObjetoEtapaGrupo({etapaId,idGrupo:id}))} edge="end" color="inherit" aria-label="close"> */}
+                    <IconButton  onClick={()=>dispatch(eliminarObjetoEtapaGrupo({etapaId,idGrupo:id}))} edge="end" color="inherit" aria-label="close">
+                        <DeleteIcon  />
                     </IconButton>
                 </Toolbar>
             </AppBar>

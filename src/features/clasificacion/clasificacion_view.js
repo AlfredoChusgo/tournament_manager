@@ -19,7 +19,7 @@ function ClasificacionView() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="md">
-        <Grid container spacing={1} rowSpacing={5} columnSpacing={{ xs: 2, sm: 2, md: 2 }}>
+        <Grid container spacing={1} rowSpacing={5} columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
 
           {etapasView}
 

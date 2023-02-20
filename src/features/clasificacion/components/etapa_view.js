@@ -13,7 +13,8 @@ import ObjetoEtapaGrupoView from './objeto_etapa_grupo_view';
 function Etapa({etapa}) {
   
   const listGruposUi = etapa.objetoEtapaList.map((item)=>{
-    return <ObjetoEtapaGrupoView key={item.id} name={item.nombre} listaEquipos={item.listaEquipos}></ObjetoEtapaGrupoView>
+    //return <ObjetoEtapaGrupoView key={item.id} name={item.nombre} listaEquipos={item.listaEquipos}></ObjetoEtapaGrupoView>
+    return <ObjetoEtapaGrupoView key={item.id} etapaId={etapa.id} grupo={item}></ObjetoEtapaGrupoView>
   });
   const { t, i18n } = useTranslation();
 

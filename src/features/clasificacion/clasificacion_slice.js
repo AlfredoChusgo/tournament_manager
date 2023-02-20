@@ -47,7 +47,6 @@ export const clasificacionSlice = createSlice(
                 state.etapas.push({ id, nombre: `Etapa ${state.etapas.length}`,objetoEtapaList:[] });
             },
             agregarObjetoEtapa: (state, action) => {
-                //agregarObjetoEtapa (idEtapa,tipoObjetoEtapa,nombreObjetoEtapa)
                 let { idEtapa, objetoEtapa } = action.payload;
                 let { tipo,cantidadEquipos } = objetoEtapa;
 
@@ -70,12 +69,25 @@ export const clasificacionSlice = createSlice(
 
                     etapa.objetoEtapaList.push(newGrupo);
                 }
-
             },
+            eliminarObjetoEtapaGrupo:(state,action)=>{
+                const {etapaId,idGrupo} = action.payload;
+                let etapa = state.etapas.find(e => e.id == etapaId);
+                if (etapa == null) {
+                    throw new Error("Etapa not found");
+                }
+
+                const grupo = etapa.objetoEtapaList.find(e=>e.id == idGrupo && e.tipo =='grupo');
+                if (grupo == null) {
+                    throw new Error("Grupo not found");
+                }
+
+                etapa.objetoEtapaList = etapa.objetoEtapaList.filter(objetoEtapa=>objetoEtapa.id!= idGrupo);
+            }
         }
     }
 );
 
-export const {agregarEtapa,agregarObjetoEtapa} = clasificacionSlice.actions;
+export const {agregarEtapa,agregarObjetoEtapa,eliminarObjetoEtapaGrupo} = clasificacionSlice.actions;
 export const selectEtapas = (state) => state.clasificacion.etapas;
 export default clasificacionSlice.reducer;
