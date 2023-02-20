@@ -14,7 +14,7 @@ function ClasificacionView() {
   const etapas = useSelector(selectEtapas);
 
   const etapasView = etapas.map(e => <Grid item><Etapa key={e.id} etapa={e}></Etapa>
-    <AgregarObjetoEtapaView></AgregarObjetoEtapaView></Grid>);
+    <AgregarObjetoEtapaView etapaId={e.id}></AgregarObjetoEtapaView></Grid>);
   return (
     <React.Fragment>
       <CssBaseline />

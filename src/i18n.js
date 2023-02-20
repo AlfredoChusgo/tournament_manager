@@ -17,7 +17,12 @@ const resources = {
       "clasificacion":"Clasificación",
       "clasificacionIndividual":"Competencia individual",
       "agregarEtapa":"Agregar etapa",
-      "agregarEtapaDescripcion":"Agrega una etapa extra si quieres clasificar equipos en base al rendinmiento de la(s) etapa(s) anterior(es)."
+      "agregarEtapaDescripcion":"Agrega una etapa extra si quieres clasificar equipos en base al rendinmiento de la(s) etapa(s) anterior(es).",
+      "agregarGrupo":"Agregar Grupo",
+      "cantidadEquipoGrupo":"Cantidad de equipos por grupo",
+      "agregar":"Agregar",
+      "cancelar":"Cancelar",
+      "lugarVacio":"lugar vacio"
     },
   }
 };

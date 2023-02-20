@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuid } from 'uuid';
+import { useTranslation } from 'react-i18next';
 
 const objetoEtapaList = [
     {
@@ -29,8 +30,9 @@ const objetoEtapaList = [
 ];
 
 const initialState = {
-    etapas: [{ id: 0, nombre: "Etapa 1", objetoEtapaList: objetoEtapaList },
-    { id: 1, nombre: "Etapa 2", objetoEtapaList: objetoEtapaList }
+    etapas: [
+        { id: 0, nombre: "Etapa 0", objetoEtapaList: objetoEtapaList },
+    //{ id: 1, nombre: "Etapa 1", objetoEtapaList: objetoEtapaList }
 
     ],
 };
@@ -47,9 +49,9 @@ export const clasificacionSlice = createSlice(
             agregarObjetoEtapa: (state, action) => {
                 //agregarObjetoEtapa (idEtapa,tipoObjetoEtapa,nombreObjetoEtapa)
                 let { idEtapa, objetoEtapa } = action.payload;
-                let { tipo } = objetoEtapa;
+                let { tipo,cantidadEquipos } = objetoEtapa;
 
-                let etapa = state.etapas.find(e => e.id = idEtapa);
+                let etapa = state.etapas.find(e => e.id == idEtapa);
 
                 if (etapa == null) {
                     throw new Error("Etapa not found");
@@ -57,7 +59,16 @@ export const clasificacionSlice = createSlice(
 
                 if (tipo = 'grupo') {
                     let id = etapa.objetoEtapaList.length;
-                    etapa.objetoEtapaList.push({ id, nombre: `Grupo ${id}`, tipo: "grupo", listaEquipos: [] });
+
+                    let listaEquipos = [];
+                    for (let index = 0; index < cantidadEquipos; index++) {
+                        let uidd = uuid();
+                        listaEquipos.push({id:uidd})
+                    }
+                    
+                    let newGrupo = { id, nombre: `Grupo ${id}`, tipo: "grupo", listaEquipos: listaEquipos };
+
+                    etapa.objetoEtapaList.push(newGrupo);
                 }
 
             },
