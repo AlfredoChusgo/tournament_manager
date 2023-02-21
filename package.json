@@ -1,6 +1,7 @@
 {
   "name": "tournament-manager",
   "version": "0.1.0",
+  "homepage":"https://alfredochusgo.github.io/tournament_manager",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
