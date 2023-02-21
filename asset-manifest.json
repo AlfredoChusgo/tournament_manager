@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/tournament_manager/static/css/main.ae71d505.css",
+    "main.js": "/tournament_manager/static/js/main.3bbef051.js",
+    "static/js/787.fa21248d.chunk.js": "/tournament_manager/static/js/787.fa21248d.chunk.js",
+    "static/media/logo.svg": "/tournament_manager/static/media/logo.b2e5a01e505f739f1484b881277d5186.svg",
+    "index.html": "/tournament_manager/index.html",
+    "main.ae71d505.css.map": "/tournament_manager/static/css/main.ae71d505.css.map",
+    "main.3bbef051.js.map": "/tournament_manager/static/js/main.3bbef051.js.map",
+    "787.fa21248d.chunk.js.map": "/tournament_manager/static/js/787.fa21248d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ae71d505.css",
+    "static/js/main.3bbef051.js"
+  ]
+}
