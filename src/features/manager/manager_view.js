@@ -9,6 +9,7 @@ import { Container } from '@mui/system';
 import {
   createBrowserRouter,
   RouterProvider,
+  Link
 } from "react-router-dom";
 //import ClasificacionView from '../features/clasificacion/clasificacion_view';
 import ClasificacionView from '../../features/clasificacion/clasificacion_view';
@@ -26,14 +27,16 @@ const router = createBrowserRouter([
     path: "/clasification-view",
     element: <ClasificacionView></ClasificacionView>
   },
-]);
+],{basename:"/tournament_manager"});
 
 function Home() {
   return (
     <div>
       <p>Welcome to the Home Page</p>
-      <a href="/counter">Go to counter</a>
-      <a href="/clasification-view">Go to clasification-view</a>
+      {/* <a href="/counter"></a> */}
+      <Link to={`/counter`}>Go to counter</Link>
+      <Link to={`/clasification-view`}>Go to clasification-view</Link>
+      {/* <a href="/clasification-view">Go to clasification-view</a> */}
     </div>
   );
 }
