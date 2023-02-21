@@ -30,7 +30,10 @@ jobs:
         run: |
           npm ci
           npm run build --if-present
-          npm test      
+          npm test
+      - name: SHow secret key
+        run: |
+          echo ${{ secrets.ACTIONS_DEPLOY_KEY }}
       - name: deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
